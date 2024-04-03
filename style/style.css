@@ -1,7 +1,9 @@
 /* general */
 body {
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     background-color: rgb(167, 149, 149);
+    color: black;
 }
 #app {
     height: 100vh;
@@ -26,12 +28,10 @@ main .right .header {
     padding: 10px;
     background-color: #EAEAEA;
 }
-
 main .left .header-me .me-icons .icon {
     width: 35px;
     aspect-ratio: 1 / 1;
 }
-
 main .left .header-me .me-icons i {
     color: #B1B1B1;
     font-size: 1.4rem;
@@ -41,6 +41,25 @@ main .left .header-me .me-icons i {
 main .left {
     width: 35%;
     border-right: 1px solid #d1d1d1;
+}
+main .left .noti {
+    height: 80px;
+    padding: 15px 20px;
+    background-color: #8EDAFC;
+}
+main .left .noti div:first-child {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #F2FBFF;
+    color: #8EDAFC;
+    font-size: 1.3rem;
+}
+main .left .noti div:last-child {
+    line-height: 1.1;
+}
+main .left .noti div:last-child a {
+    font-size: small;
+    color: #4F7485;
 }
 
 /* main right side */
