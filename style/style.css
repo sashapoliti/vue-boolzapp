@@ -61,6 +61,23 @@ main .left .noti div:last-child a {
     font-size: small;
     color: #4F7485;
 }
+main .left .search-bar {
+    height: 50px;
+    padding: 7px;
+    background-color: #FAFAFA;
+}
+main .left .search-bar span,
+main .left .search-bar input {
+    border-radius: 0;
+    border-color: #f3f3f3;
+    font-size: small;
+}
+main .left .search-bar span.input-group-text {
+    width: 80px;
+    background-color: white;
+    color: #B8B9BB;
+    font-size: 1rem;
+}
 
 /* main right side */
 main .right {
