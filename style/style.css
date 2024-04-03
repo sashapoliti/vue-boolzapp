@@ -23,7 +23,8 @@ main.container {
   background-color: white;
 }
 main .left .header-me,
-main .right .header {
+main .right .header,
+main .right .chat-input-bar {
   height: 70px;
   padding: 10px;
   background-color: #eaeaea;
@@ -110,10 +111,24 @@ main .right .header span.last-message {
     font-size: small;
     color: #6B7376;
 }
-main #chat {
+main .right #chat {
   height: calc(100% - 70px * 2);
   padding: 0 10px;
+  background-image: url('../img/mine.jpg');
   overflow-y: scroll;
+}
+main .right .chat-input-bar {
+    padding: 10px 0;
+    background-color: #F3EEEA;
+}
+main .right .chat-input-bar input {
+    font-size: 0.9rem;
+}
+main .right .chat-input-bar div:first-child,
+main .right .chat-input-bar div:last-child {
+    width: 15%;
+    font-size: 1.6rem;
+    color: #6B7376;
 }
 
 /* utility */
