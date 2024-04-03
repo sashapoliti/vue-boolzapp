@@ -113,9 +113,31 @@ main .right .header span.last-message {
 }
 main .right #chat {
   height: calc(100% - 70px * 2);
-  padding: 0 10px;
+  padding: 0 50px;
   background-image: url('../img/mine.jpg');
   overflow-y: scroll;
+}
+main .right #chat .box {
+    width: 350px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+main .right #chat .box .message {
+    padding: 10px 15px 0;
+    font-size: 0.9rem;
+}
+main .right #chat .box .date {
+    padding-right: 5px;
+    font-size: 0.7rem;
+    color: #B1B1B1;
+}
+main .right #chat .box.sent {
+    margin-left: auto;
+    background-color: #D5F9BA;
+}
+main .right #chat .box.received {
+    margin-right: auto;
+    background-color: white;
 }
 main .right .chat-input-bar {
     padding: 10px 0;
