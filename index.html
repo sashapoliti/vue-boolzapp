@@ -80,7 +80,7 @@
           <!-- list of contacts -->
           <div id="chats-list">
             <div class="chat-preview d-flex" v-for="(contact, index) in contacts" :key="contact.id">              
-                <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" alt="">
+                <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" :alt="`Immagine di ${contact.name}`">
                 <div class="d-flex flex-column">
                   <span class="name">{{contact.name}}</span>
                   <span class="last-message">{{contact.messages[contact.messages.length - 1].message}}</span>
@@ -92,8 +92,25 @@
 
         <!-- all right -->
         <div class="right">
-          <div class="header">
-            456
+          <div class="header d-flex justify-content-between">
+            <div class="d-flex align-items-center ">
+              <img class="w-auto rounded-circle me-3" src="img/avatar_1.jpg" alt="my avatar">
+              <div class="d-flex flex-column">
+                <span class="name">Michele</span>
+                <span class="last-message">Ultimo accesso oggi alle 12:00</span>
+              </div>
+            </div>
+            <div class="icons d-flex align-items-center ">
+              <div class="icon d-flex justify-content-center align-items-center mx-1">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="icon d-flex justify-content-center align-items-center mx-1">
+                <i class="fa-solid fa-paperclip"></i>
+              </div>
+              <div class="icon d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+            </div>
           </div>
 
           <div id="chat">

@@ -28,11 +28,13 @@ main .right .header {
   padding: 10px;
   background-color: #eaeaea;
 }
-main .left .header-me .me-icons .me-icon {
+main .left .header-me .me-icons .me-icon,
+main .right .header .icons .icon {
   width: 35px;
   aspect-ratio: 1 / 1;
 }
-main .left .header-me .me-icons i {
+main .left .header-me .me-icons i,
+main .right .header .icons i {
   color: #b1b1b1;
   font-size: 1.4rem;
 }
@@ -100,6 +102,13 @@ main .left #chats-list .chat-preview .last-message-date {
 /* main right side */
 main .right {
   width: 65%;
+}
+main .right .header span.name {
+    line-height: 1.1;
+}
+main .right .header span.last-message {
+    font-size: small;
+    color: #6B7376;
 }
 main #chat {
   height: calc(100% - 70px * 2);
