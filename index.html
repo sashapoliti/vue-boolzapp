@@ -79,13 +79,13 @@
 
           <!-- list of contacts -->
           <div id="chats-list">
-            <div class="chat-preview d-flex ">              
-                <img class="rounded-circle w-auto mx-3 " src="img/avatar_1.jpg" alt="">
+            <div class="chat-preview d-flex" v-for="(contact, index) in contacts" :key="contact.id">              
+                <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" alt="">
                 <div class="d-flex flex-column">
-                  <span class="name">Michele</span>
-                  <span class="last-message">Ultimo messaggio inviato</span>
+                  <span class="name">{{contact.name}}</span>
+                  <span class="last-message">{{contact.messages[contact.messages.length - 1].message}}</span>
                 </div>
-                <span class="last-message-date ms-auto ">12:00</span>
+                <span class="last-message-date ms-auto ">{{contact.messages[contact.messages.length - 1].date}}</span>
             </div>
           </div>
         </div>
