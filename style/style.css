@@ -1,93 +1,110 @@
 /* general */
 body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    background-color: rgb(167, 149, 149);
-    color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  background-color: rgb(167, 149, 149);
+  color: black;
 }
 #app {
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(180deg, #009688 15%, #DCDBD3 15%);
-    padding: 30px 0;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, #009688 15%, #dcdbd3 15%);
+  padding: 30px 0;
 }
 img {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 /* main */
 main.container {
-    height: 100%;
-    padding: 0;
-    background-color: white;
+  height: 100%;
+  padding: 0;
+  background-color: white;
 }
 main .left .header-me,
 main .right .header {
-    height: 70px;
-    padding: 10px;
-    background-color: #EAEAEA;
+  height: 70px;
+  padding: 10px;
+  background-color: #eaeaea;
 }
-main .left .header-me .me-icons .icon {
-    width: 35px;
-    aspect-ratio: 1 / 1;
+main .left .header-me .me-icons .me-icon {
+  width: 35px;
+  aspect-ratio: 1 / 1;
 }
 main .left .header-me .me-icons i {
-    color: #B1B1B1;
-    font-size: 1.4rem;
+  color: #b1b1b1;
+  font-size: 1.4rem;
 }
 
 /* main left side */
 main .left {
-    width: 35%;
-    border-right: 1px solid #d1d1d1;
+  width: 35%;
+  border-right: 1px solid #d1d1d1;
 }
 main .left .noti {
-    height: 80px;
-    padding: 15px 20px;
-    background-color: #8EDAFC;
+  height: 80px;
+  padding: 15px 20px;
+  background-color: #8edafc;
 }
 main .left .noti div:first-child {
-    height: 100%;
-    aspect-ratio: 1 / 1;
-    background-color: #F2FBFF;
-    color: #8EDAFC;
-    font-size: 1.3rem;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f2fbff;
+  color: #8edafc;
+  font-size: 1.3rem;
 }
 main .left .noti div:last-child {
-    line-height: 1.1;
+  line-height: 1.1;
 }
 main .left .noti div:last-child a {
-    font-size: small;
-    color: #4F7485;
+  font-size: small;
+  color: #4f7485;
 }
 main .left .search-bar {
-    height: 50px;
-    padding: 7px;
-    background-color: #FAFAFA;
+  height: 50px;
+  padding: 7px;
+  background-color: #fafafa;
 }
 main .left .search-bar span,
 main .left .search-bar input {
-    border-radius: 0;
-    border-color: #f3f3f3;
-    font-size: small;
+  border-radius: 0;
+  border-color: #f3f3f3;
+  font-size: small;
 }
 main .left .search-bar span.input-group-text {
-    width: 80px;
-    background-color: white;
-    color: #B8B9BB;
-    font-size: 1rem;
+  width: 80px;
+  background-color: white;
+  color: #b8b9bb;
+  font-size: 1rem;
+}
+main .left #chats-list {
+  height: calc(100% - 70px - 80px - 50px);
+  overflow-y: scroll;
+}
+main .left #chats-list .chat-preview {
+  height: 80px;
+  padding: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+main .left #chats-list .chat-preview .name {
+    font-size: 1.1rem;
+    line-height: 1.1;
+}
+main .left #chats-list .chat-preview .last-message,
+main .left #chats-list .chat-preview .last-message-date {
+    font-size: small;
+    color: #B1B1B1;
 }
 
 /* main right side */
 main .right {
-    width: 65%;
+  width: 65%;
 }
 main #chat {
-    height: calc(100% - 70px * 2);
-    padding: 0 10px;
-    overflow-y: hidden;    
+  height: calc(100% - 70px * 2);
+  padding: 0 10px;
+  overflow-y: scroll;
 }
 
 /* utility */
-

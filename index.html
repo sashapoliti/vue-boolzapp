@@ -44,13 +44,13 @@
               <span>Sofia</span>
             </div>
             <div class="me-icons d-flex align-items-center ">
-              <div class="icon d-flex justify-content-center align-items-center mx-1">
+              <div class="me-icon d-flex justify-content-center align-items-center mx-1">
                 <i class="fa-solid fa-circle-notch"></i>
               </div>
-              <div class="icon d-flex justify-content-center align-items-center mx-1">
+              <div class="me-icon d-flex justify-content-center align-items-center mx-1">
                 <i class="fa-solid fa-message"></i>
               </div>
-              <div class="icon d-flex justify-content-center align-items-center">
+              <div class="me-icon d-flex justify-content-center align-items-center">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
             </div>
@@ -70,14 +70,23 @@
           <!-- search bar -->
           <div class="search-bar d-flex ">
             <div class="input-group">
-              <span class="input-group-text d-flex justify-content-center"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <span class="input-group-text d-flex justify-content-center">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
               <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
             </div>
           </div>
 
           <!-- list of contacts -->
           <div id="chats-list">
-            
+            <div class="chat-preview d-flex ">              
+                <img class="rounded-circle w-auto mx-3 " src="img/avatar_1.jpg" alt="">
+                <div class="d-flex flex-column">
+                  <span class="name">Michele</span>
+                  <span class="last-message">Ultimo messaggio inviato</span>
+                </div>
+                <span class="last-message-date ms-auto ">12:00</span>
+            </div>
           </div>
         </div>
 
