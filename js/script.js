@@ -9,7 +9,11 @@ createApp({
       activeID : contacts[0].id
     }
   },
-  methods: {},
+  methods: {
+    changeContact(id) {
+      this.activeID = id;
+    }
+  },
   computed: {
     activeContact() {
       return this.contacts.find((element) => element.id === this.activeID)
