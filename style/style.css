@@ -90,6 +90,9 @@ main .left #chats-list .chat-preview {
   padding: 10px;
   border-bottom: 1px solid #f1f1f1;
 }
+main .left #chats-list .chat-preview.active {
+    background-color: #E9EBEB;
+}
 main .left #chats-list .chat-preview .name {
     font-size: 1.1rem;
     line-height: 1.1;

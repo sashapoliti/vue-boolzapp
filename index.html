@@ -79,7 +79,7 @@
 
           <!-- list of contacts -->
           <div id="chats-list">
-            <div class="chat-preview d-flex" v-for="(contact, index) in contacts" :key="contact.id">              
+            <div class="chat-preview d-flex" :class="{'active' : activeID === contact.id}" v-for="(contact, index) in contacts" :key="contact.id">              
                 <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" :alt="`Immagine di ${contact.name}`">
                 <div class="d-flex flex-column">
                   <span class="name">{{contact.name}}</span>
@@ -92,6 +92,8 @@
 
         <!-- all right -->
         <div class="right">
+
+          <!-- header right side -->
           <div class="header d-flex justify-content-between">
             <div class="d-flex align-items-center ">
               <img class="w-auto rounded-circle me-3" src="img/avatar_1.jpg" alt="my avatar">
@@ -113,17 +115,15 @@
             </div>
           </div>
 
+          <!-- all the chat space -->
           <div id="chat">
-            <div class="box sent d-flex flex-column ">
-              <span class="message">Lorem ipsum dolor sit amet.</span>
-              <span class="date ms-auto ">12:00</span>
-            </div>
-            <div class="box received d-flex flex-column ">
-              <span class="message">Lorem ipsum dolor sit amet.</span>
-              <span class="date ms-auto ">12:00</span>
+            <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages">
+              <span class="message">{{message.message}}</span>
+              <span class="date ms-auto ">{{message.date}}</span>
             </div>
           </div>
 
+          <!-- chat input bar -->
           <div class="chat-input-bar d-flex ">
             <div class="d-flex justify-content-center align-items-center">
               <i class="fa-regular fa-face-smile"></i>

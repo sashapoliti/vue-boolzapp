@@ -10,7 +10,11 @@ createApp({
     }
   },
   methods: {},
-  computed: {},
+  computed: {
+    activeContact() {
+      return this.contacts.find((element) => element.id === this.activeID)
+    }
+  },
   mounted() {
     console.log(this.contacts);
   },
