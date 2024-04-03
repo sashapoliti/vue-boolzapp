@@ -6,7 +6,7 @@ body {
 #app {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(180deg, #009688 13%, #DCDBD3 13%);
+    background: linear-gradient(180deg, #009688 15%, #DCDBD3 15%);
     padding: 30px 0;
 }
 img {
@@ -20,31 +20,38 @@ main.container {
     padding: 0;
     background-color: white;
 }
-main .left {
-    width: 40%;
-    border-right: 1px solid #d1d1d1;
-}
-main .right {
-    width: 60%;
-}
 main .left .header-me,
 main .right .header {
-    height: 80px;
-    padding: 15px 10px;
+    height: 70px;
+    padding: 10px;
     background-color: #EAEAEA;
 }
 
+main .left .header-me .me-icons .icon {
+    width: 35px;
+    aspect-ratio: 1 / 1;
+}
+
 main .left .header-me .me-icons i {
-    margin: 0 5px;
-    padding: 5px;
     color: #B1B1B1;
     font-size: 1.4rem;
 }
 
+/* main left side */
+main .left {
+    width: 35%;
+    border-right: 1px solid #d1d1d1;
+}
+
+/* main right side */
+main .right {
+    width: 65%;
+}
 main #chat {
-    height: calc(100% - 80px * 2);
+    height: calc(100% - 70px * 2);
     padding: 0 10px;
     overflow-y: hidden;    
 }
+
 /* utility */
 
