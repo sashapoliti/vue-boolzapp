@@ -92,25 +92,25 @@ main .left #chats-list .chat-preview {
   cursor: pointer;
 }
 main .left #chats-list .chat-preview:not(.active):hover {
-    background-color: #b3b3b3;
-    transition-duration: 0.3s;
+  background-color: #b3b3b3;
+  transition-duration: 0.3s;
 }
 main .left #chats-list .chat-preview:not(.active):hover .last-message,
 main .left #chats-list .chat-preview:not(.active):hover .last-message-date {
-    color: #FAFAFA;
-    transition-duration: 0.3s;
+  color: #fafafa;
+  transition-duration: 0.3s;
 }
 main .left #chats-list .chat-preview.active {
-    background-color: #E9EBEB;
+  background-color: #e9ebeb;
 }
 main .left #chats-list .chat-preview .name {
-    font-size: 1.1rem;
-    line-height: 1.1;
+  font-size: 1.1rem;
+  line-height: 1.1;
 }
 main .left #chats-list .chat-preview .last-message,
 main .left #chats-list .chat-preview .last-message-date {
-    font-size: small;
-    color: #B1B1B1;
+  font-size: small;
+  color: #b1b1b1;
 }
 
 /* main right side */
@@ -118,52 +118,52 @@ main .right {
   width: 65%;
 }
 main .right .header span.name {
-    line-height: 1.1;
+  line-height: 1.1;
 }
 main .right .header span.last-message {
-    font-size: small;
-    color: #6B7376;
+  font-size: small;
+  color: #6b7376;
 }
 main .right #chat {
   height: calc(100% - 70px * 2);
   padding: 0 50px;
-  background-image: url('../img/mine.jpg');
+  background-image: url("../img/mine.jpg");
   overflow-y: scroll;
 }
 main .right #chat .box {
-    width: 350px;
-    margin: 10px 0;
-    border-radius: 10px;
+  width: 350px;
+  margin: 10px 0;
+  border-radius: 10px;
 }
 main .right #chat .box .message {
-    padding: 10px 15px 0;
-    font-size: 0.9rem;
+  padding: 10px 15px 0;
+  font-size: 0.9rem;
 }
 main .right #chat .box .date {
-    padding-right: 5px;
-    font-size: 0.7rem;
-    color: #B1B1B1;
+  padding-right: 5px;
+  font-size: 0.7rem;
+  color: #b1b1b1;
 }
 main .right #chat .box.sent {
-    margin-left: auto;
-    background-color: #D5F9BA;
+  margin-left: auto;
+  background-color: #d5f9ba;
 }
 main .right #chat .box.received {
-    margin-right: auto;
-    background-color: white;
+  margin-right: auto;
+  background-color: white;
 }
 main .right .chat-input-bar {
-    padding: 10px 0;
-    background-color: #F3EEEA;
+  padding: 10px 0;
+  background-color: #f3eeea;
 }
 main .right .chat-input-bar input {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 main .right .chat-input-bar div:first-child,
 main .right .chat-input-bar div:last-child {
-    width: 15%;
-    font-size: 1.6rem;
-    color: #6B7376;
+  width: 15%;
+  font-size: 1.6rem;
+  color: #6b7376;
 }
 
 /* utility */
