@@ -123,8 +123,13 @@
           <!-- all the chat space -->
           <div id="chat">
             <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages">
-              <span class="delete-message-icon">
+              <span class="delete-message-icon dropdown">
                 <i class="fa-solid fa-angle-down"></i>
+                <ul class="dropdown-menu show">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
               </span>
               <span class="message">{{message.message}}</span>
               <span class="date ms-auto ">{{message.date}}</span>

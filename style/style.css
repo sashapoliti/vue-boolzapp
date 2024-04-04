@@ -140,6 +140,7 @@ main .right #chat .box .delete-message-icon {
   position: absolute;
   top: calc(50% - 22px);
   right: 7px;
+  cursor: pointer;
 }
 main .right #chat .box:hover .delete-message-icon {
   color: #0000005d;
