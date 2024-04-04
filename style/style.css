@@ -219,3 +219,10 @@ main .right .chat-input-bar div:last-child {
   font-size: 1.6rem;
   color: #6b7376;
 }
+main .right #welcome {
+  height: 100%;
+  padding: 0 50px;
+  background-color: #28bd72;
+  border: 10px solid #FFFFFF;
+  border-left: 0;
+}
