@@ -132,9 +132,21 @@ main .right #chat .box {
   width: 350px;
   margin: 10px 0;
   border-radius: 10px;
+  position: relative;
+}
+main .right #chat .box .delete-message-icon {
+  font-size: 1.3rem;
+  color: #00000000;
+  position: absolute;
+  top: calc(50% - 22px);
+  right: 7px;
+}
+main .right #chat .box:hover .delete-message-icon {
+  color: #0000005d;
+  transition-duration: 0.3s;
 }
 main .right #chat .box .message {
-  padding: 10px 15px 0;
+  padding: 10px 23px 0 15px;
   font-size: 0.9rem;
 }
 main .right #chat .box .date {
