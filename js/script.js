@@ -27,14 +27,15 @@ createApp({
     },
     addMessage() {
       /* console.log('yes'); */
-      if (this.newMessage !== '') {
+      if (this.newMessage.trim() !== '') {
         this.activeContact.messages.push(this.createMessage(this.newMessage, 'sent'));
-        this.newMessage = '';
 
         setTimeout(() => {
           this.activeContact.messages.push(this.createMessage('ok', 'received'));
         }, 1000); /* timeout for a reply after 1 second */
       }
+
+      this.newMessage = '';
     },
     showDeleteDropdown(index) {
       /* console.log('im here'); */
