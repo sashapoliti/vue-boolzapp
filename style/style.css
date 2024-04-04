@@ -191,6 +191,14 @@ main .right .chat-input-bar {
   padding: 15px 0;
   background-color: #f3eeea;
 }
+main .right .chat-input-bar i {
+  padding: 5px;
+  cursor: pointer;
+}
+main .right .chat-input-bar i:hover {
+  color: #068175;
+  transition-duration: 0.3s;
+}
 main .right .chat-input-bar input {
   font-size: 0.9rem;
 }

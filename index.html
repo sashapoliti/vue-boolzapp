@@ -42,8 +42,8 @@
           <!-- my section -->
           <div class="header-me d-flex justify-content-between ">
             <div class="me d-flex align-items-center ">
-              <img class="rounded-circle me-2" src="img/avatar_io.jpg" alt="my avatar">
-              <span>Sofia</span>
+              <img class="rounded-circle me-2" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f55211c7-40a6-4534-8ab2-a6a55256621d/dfzf1wn-13cfa100-47eb-420b-91f9-603b40e61138.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y1NTIxMWM3LTQwYTYtNDUzNC04YWIyLWE2YTU1MjU2NjIxZFwvZGZ6ZjF3bi0xM2NmYTEwMC00N2ViLTQyMGItOTFmOS02MDNiNDBlNjExMzgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.i7FdnaQn1q2hSxhSxD8uBafG8QxeD78z9aB3dTZ9W_c" alt="my avatar">
+              <span>Sasha</span>
             </div>
             <div class="me-icons d-flex align-items-center ">
               <div class="me-icon d-flex justify-content-center align-items-center mx-1">
@@ -150,9 +150,12 @@
             </div>
             <input type="text" class="form-control" id="input-text-message" placeholder="Scrivi un messaggio"
             v-model="newMessage"
-            @keyup.enter="addMessage">
+            @keyup.enter="addMessage"
+            @focus="sendButton"
+            @blur="sendButton">
             <div class="d-flex justify-content-center align-items-center">
-              <i class="fa-solid fa-microphone"></i>
+              <i class="fa-solid fa-microphone" v-if="!focusInputChat && newMessage === ''"></i>
+              <i class="fa-solid fa-paper-plane" @mousedown="addMessage" v-if="focusInputChat || newMessage !== ''"></i>
             </div>
           </div>
         </div>

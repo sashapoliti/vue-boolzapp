@@ -10,7 +10,8 @@ createApp({
       contacts,
       activeID : contacts[0].id,
       newMessage : '',
-      filterText : ''
+      filterText : '',
+      focusInputChat : false
     }
   },
   methods: {
@@ -49,6 +50,9 @@ createApp({
     },
     deleteMessage(index) {
       this.activeContact.messages.splice(index, 1); /* splice the message with index */
+    },
+    sendButton() {
+      this.focusInputChat = !this.focusInputChat;
     }
   },
   computed: {
