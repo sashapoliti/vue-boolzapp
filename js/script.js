@@ -8,7 +8,7 @@ createApp({
   data() {
     return {
       contacts,
-      activeID: contacts[0].id,
+      activeID: '',
       newMessage: "",
       filterText: "",
       focusInputChat: false,
@@ -85,11 +85,14 @@ createApp({
       this.deleteAllDropdown = false; //reset header dropdown
     },
     deleteChat() {
+      console.log(this.activeContact);
+      console.log(this.contacts);
       const currentIndex = this.contacts.findIndex((contact) => contact.id === this.activeID); /* find index of active contact */
       this.contacts.splice(currentIndex, 1); // delete contact
-
-      this.activeID = (currentIndex > this.contacts.length - 1) ? this.contacts[currentIndex - 1].id : this.contacts[currentIndex].id; //set new active id with same index or index - 1 for last element of array
-      this.deleteAllDropdown = false; //reset header dropdown
+      if (this.contacts.length > 0) {
+        this.activeID = (currentIndex > this.contacts.length - 1) ? this.contacts[currentIndex - 1].id : this.contacts[currentIndex].id; //set new active id with same index or index - 1 for last element of array
+        this.deleteAllDropdown = false; //reset header dropdown
+      }
     },
   },
   computed: {

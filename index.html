@@ -99,15 +99,15 @@
         <div class="right">
 
           <!-- header right side -->
-          <div class="header d-flex justify-content-between">
+          <div class="header d-flex justify-content-between" v-if="activeContact">
             <div class="d-flex align-items-center ">
-              <img class="w-auto rounded-circle me-3" :src="`img/${activeContact.avatar}`" alt="my avatar">
+              <img class="w-auto rounded-circle me-3" :src="activeContact ? `img/${activeContact.avatar}` : ''" alt="my avatar">
               <div class="d-flex flex-column">
-                <span class="name">{{activeContact.name}}</span>
+                <span class="name" v-if="activeContact">{{ activeContact ? activeContact.name : '' }}</span>
                 <div class="last-message" v-if="activeContact.messages.length > 0">
-                  <span v-if="contactStatus === 'offline'">ultimo accesso oggi alle {{activeContact.messages[activeContact.messages.length - 1].date}}</span>
-                  <span v-if="contactStatus === 'writing'">sta scrivendo...</span>
-                  <span v-if="contactStatus === 'online'">online</span>
+                  <span v-if="activeContact && contactStatus === 'offline'">ultimo accesso oggi alle {{activeContact.messages[activeContact.messages.length - 1].date}}</span>
+                  <span v-if="activeContact && contactStatus === 'writing'">sta scrivendo...</span>
+                  <span v-if="activeContact && contactStatus === 'online'">online</span>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@
           </div>
 
           <!-- all the chat space -->
-          <div id="chat">
+          <div id="chat" v-if="activeContact">
             <div v-if="activeContact.messages.length > 0">
               <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages">
                 <span class="delete-message-icon dropdown">
@@ -158,7 +158,7 @@
           </div>
 
           <!-- chat input bar -->
-          <div class="chat-input-bar d-flex ">
+          <div class="chat-input-bar d-flex " v-if="activeContact">
             <div class="d-flex justify-content-center align-items-center">
               <i class="fa-regular fa-face-smile"></i>
             </div>
