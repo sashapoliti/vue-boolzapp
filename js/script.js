@@ -12,7 +12,8 @@ createApp({
       newMessage : '',
       filterText : '',
       focusInputChat : false,
-      contactStatus : 'offline'
+      contactStatus : 'offline',
+      deleteAllDropdown : false
     }
   },
   methods: {
@@ -60,6 +61,9 @@ createApp({
     },
     sendButton() {
       this.focusInputChat = !this.focusInputChat;
+    },
+    showDeleteAllDropdown() {
+      this.deleteAllDropdown = !this.deleteAllDropdown;
     }
   },
   computed: {

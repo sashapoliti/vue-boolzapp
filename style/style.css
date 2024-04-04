@@ -36,8 +36,15 @@ main .right .header .icons .icon {
 }
 main .left .header-me .me-icons i,
 main .right .header .icons i {
+  padding: 5px;
   color: #b1b1b1;
   font-size: 1.4rem;
+  cursor: pointer;
+}
+main .left .header-me .me-icons i:hover,
+main .right .header .icons i:hover {
+  color: #068175;
+  transition-duration: 0.3s;
 }
 
 /* main left side */
@@ -122,6 +129,9 @@ main .right {
 }
 main .right .header span.name {
   line-height: 1.1;
+}
+main .right .header .icons .icon .fa-ellipsis-vertical.active {
+  color: #068175;
 }
 main .right .header div.last-message {
   font-size: small;
