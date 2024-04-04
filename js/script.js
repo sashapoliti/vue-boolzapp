@@ -11,7 +11,8 @@ createApp({
       activeID : contacts[0].id,
       newMessage : '',
       filterText : '',
-      focusInputChat : false
+      focusInputChat : false,
+      contactStatus : 'offline'
     }
   },
   methods: {
@@ -31,10 +32,16 @@ createApp({
       /* console.log('yes'); */
       if (this.newMessage.trim() !== '') {
         this.activeContact.messages.push(this.createMessage(this.newMessage, 'sent'));
+        this.contactStatus = 'writing';
 
         setTimeout(() => {
           this.activeContact.messages.push(this.createMessage('ok', 'received'));
-        }, 1000); /* timeout for a reply after 1 second */
+          this.contactStatus = 'online';
+        }, 2000); /* timeout for a reply after 1 second */
+
+        setTimeout(() => {
+          this.contactStatus = 'offline';
+        }, 5000); /* timeout for reset status offline */
       }
 
       this.newMessage = '';

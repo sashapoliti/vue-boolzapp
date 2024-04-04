@@ -123,7 +123,7 @@ main .right {
 main .right .header span.name {
   line-height: 1.1;
 }
-main .right .header span.last-message {
+main .right .header div.last-message {
   font-size: small;
   color: #6b7376;
 }
