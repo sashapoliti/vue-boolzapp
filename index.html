@@ -124,8 +124,9 @@
           <div id="chat">
             <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages">
               <span class="delete-message-icon dropdown">
-                <i class="fa-solid fa-angle-down"></i>
-                <ul class="dropdown-menu show">
+                <i class="fa-solid fa-angle-down"
+                @click="showDeleteDropdown(index)"></i>
+                <ul class="dropdown-menu" :class="{'show' : message.showDropdown === true}">
                   <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>

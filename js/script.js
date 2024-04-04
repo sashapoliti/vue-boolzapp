@@ -35,6 +35,14 @@ createApp({
           this.activeContact.messages.push(this.createMessage('ok', 'received'));
         }, 1000); /* timeout for a reply after 1 second */
       }
+    },
+    showDeleteDropdown(index) {
+      /* console.log('im here'); */
+      if (this.activeContact.messages[index].showDropdown === true) {
+        (this.activeContact.messages[index].showDropdown = false); /* reset dropdown if u click again */
+      } else {
+        (this.activeContact.messages[index].showDropdown = true);
+      }
     }
   },
   computed: {
