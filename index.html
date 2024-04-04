@@ -82,7 +82,7 @@
 
           <!-- list of contacts -->
           <div id="chats-list">
-            <div v-if="filterContacts.length < 1">Nessun risultato trovato</div>
+            <div class="chats-list-empty" v-if="filterContacts.length < 1">Nessuna conversazione presente</div>
             <div class="chat-preview d-flex" :class="{'active' : activeID === contact.id}" v-for="(contact, index) in filterContacts" :key="contact.id"
             @click="changeContact(contact.id)">              
                 <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" :alt="`Immagine di ${contact.name}`">

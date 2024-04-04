@@ -110,6 +110,11 @@ main .left #chats-list .chat-preview .last-message-date {
   font-size: small;
   color: #b1b1b1;
 }
+main .left #chats-list .chats-list-empty {
+  padding-top: 50px;
+  font-size: 0.9rem;
+  text-align: center;
+}
 
 /* main right side */
 main .right {
