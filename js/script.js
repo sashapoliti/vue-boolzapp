@@ -21,7 +21,8 @@ createApp({
       const myMessage = {
         date: dateTime.now().setLocale('it').toFormat('HH:mm'),
         message,
-        status
+        status,
+        showDropdown: false
       }; /* var for a new message sent */
       return myMessage;
     },
