@@ -124,7 +124,8 @@
                   :class="{'active' : deleteAllDropdown}"
                   @click="showDeleteAllDropdown"></i>
                   <ul class="dropdown-menu" :class="{'show' : deleteAllDropdown}">
-                    <li><a class="dropdown-item" href="#">Elimina messaggi</a></li>
+                    <li><a class="dropdown-item" href="#"
+                      @click="deleteAllMessage">Elimina messaggi</a></li>
                     <li><a class="dropdown-item" href="#">Elimina chat</a></li>
                   </ul>
                 </span>

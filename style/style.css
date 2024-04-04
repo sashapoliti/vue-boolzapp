@@ -164,7 +164,8 @@ main .right #chat .box:hover .delete-message-icon {
   color: #00000041;
   transition-duration: 0.3s;
 }
-main .right #chat .box .delete-message-icon ul.dropdown-menu {
+main .right #chat .box .delete-message-icon ul.dropdown-menu,
+main .right .header .icons .icon ul.dropdown-menu {
   font-size: 0.8rem;
   border: 0;
   border-radius: 3px;

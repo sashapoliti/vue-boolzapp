@@ -49,6 +49,7 @@ createApp({
     },
     showDeleteDropdown(index) {
       /* console.log('im here'); */
+      this.deleteAllDropdown = false; //reset header dropdown
       if (this.activeContact.messages[index].showDropdown === true) {
         this.activeContact.messages[index].showDropdown = false; /* reset dropdown if u click again */
       } else {
@@ -64,6 +65,11 @@ createApp({
     },
     showDeleteAllDropdown() {
       this.deleteAllDropdown = !this.deleteAllDropdown;
+      this.activeContact.messages.forEach((message) => message.showDropdown = false); //reset for close every other dropdown in the chat
+    },
+    deleteAllMessage() {
+      this.activeContact.messages = [];
+      this.deleteAllDropdown = false; //reset header dropdown
     }
   },
   computed: {
