@@ -1,5 +1,7 @@
 import { contacts } from "./data.js";
 
+const dateTime = luxon.DateTime;
+
 const { createApp } = Vue;
 
 createApp({
@@ -7,40 +9,40 @@ createApp({
     return {
       contacts,
       activeID : contacts[0].id,
-      newMessage : ''
+      newMessage : '',
+      filterText : ''
     }
   },
   methods: {
     changeContact(id) {
       this.activeID = id;
     },
+    createMessage(message, status) {
+      const myMessage = {
+        date: dateTime.now().setLocale('it').toFormat('HH:mm'),
+        message,
+        status
+      }; /* var for a new message sent */
+      return myMessage;
+    },
     addMessage() {
       /* console.log('yes'); */
       if (this.newMessage !== '') {
-        let myMessage = {
-          date: '15:51',
-          message: '',
-          status: 'sent'
-        }; /* var for a new message sent */
-
-        myMessage.message = this.newMessage;
-        this.activeContact.messages.push(myMessage);
+        this.activeContact.messages.push(this.createMessage(this.newMessage, 'sent'));
         this.newMessage = '';
 
         setTimeout(() => {
-          let replyMessage = {
-            date: '15:52',
-            message: 'ok',
-            status: 'received'
-          };
-          this.activeContact.messages.push(replyMessage);
+          this.activeContact.messages.push(this.createMessage('ok', 'received'));
         }, 1000); /* timeout for a reply after 1 second */
       }
     }
   },
   computed: {
     activeContact() {
-      return this.contacts.find((element) => element.id === this.activeID)
+      return this.contacts.find((element) => element.id === this.activeID);
+    },
+    filterContacts() {
+      return this.contacts.filter((element) => element.name.toLowerCase().includes(this.filterText.toLowerCase()));
     }
   },
   mounted() {

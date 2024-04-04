@@ -3,7 +3,6 @@ export const contacts = [
         id: 1,
         name: 'Michele',
         avatar: 'avatar_1.jpg',
-        visible: true,
         messages: [
             {
                 date: '15:30',
@@ -26,7 +25,6 @@ export const contacts = [
         id: 2,
         name: 'Fabio',
         avatar: 'avatar_2.jpg',
-        visible: true,
         messages: [
             {
                 date: '16:30',
@@ -49,7 +47,6 @@ export const contacts = [
         id: 3,
         name: 'Samuele',
         avatar: 'avatar_3.jpg',
-        visible: true,
         messages: [
             {
                 date: '10:10',
@@ -72,7 +69,6 @@ export const contacts = [
         id: 4,
         name: 'Alessandro B.',
         avatar: 'avatar_4.jpg',
-        visible: true,
         messages: [
             {
                 date: '15:30',
@@ -90,7 +86,6 @@ export const contacts = [
         id: 5,
         name: 'Alessandro L.',
         avatar: 'avatar_5.jpg',
-        visible: true,
         messages: [
             {
                 date: '15:30',
@@ -108,7 +103,6 @@ export const contacts = [
         id: 6,
         name: 'Claudia',
         avatar: 'avatar_6.jpg',
-        visible: true,
         messages: [
             {
                 date: '15:30',
@@ -120,18 +114,13 @@ export const contacts = [
                 message: 'Non ancora',
                 status: 'received'
             },
-            {
-                date: '15:51',
-                message: 'Nessuna nuova, buona nuova',
-                status: 'sent'
-            }
+            
         ],
     },
     {
         id: 7,
         name: 'Federico',
         avatar: 'avatar_7.jpg',
-        visible: true,
         messages: [
             {
                 date: '15:30',
@@ -149,7 +138,6 @@ export const contacts = [
         id: 8,
         name: 'Davide',
         avatar: 'avatar_8.jpg',
-        visible: true,
         messages: [
             {
                 date: '15:30',

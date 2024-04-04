@@ -95,12 +95,7 @@ main .left #chats-list .chat-preview {
   cursor: pointer;
 }
 main .left #chats-list .chat-preview:not(.active):hover {
-  background-color: #b3b3b3;
-  transition-duration: 0.3s;
-}
-main .left #chats-list .chat-preview:not(.active):hover .last-message,
-main .left #chats-list .chat-preview:not(.active):hover .last-message-date {
-  color: #fafafa;
+  background-color: #e6e6e6;
   transition-duration: 0.3s;
 }
 main .left #chats-list .chat-preview.active {
@@ -156,7 +151,7 @@ main .right #chat .box.received {
   background-color: white;
 }
 main .right .chat-input-bar {
-  padding: 10px 0;
+  padding: 15px 0;
   background-color: #f3eeea;
 }
 main .right .chat-input-bar input {
@@ -168,5 +163,3 @@ main .right .chat-input-bar div:last-child {
   font-size: 1.6rem;
   color: #6b7376;
 }
-
-/* utility */

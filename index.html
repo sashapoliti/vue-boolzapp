@@ -24,6 +24,8 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="style/style.css" />
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JS -->
@@ -73,13 +75,15 @@
               <span class="input-group-text d-flex justify-content-center">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </span>
-              <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+              <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+              v-model="filterText">
             </div>
           </div>
 
           <!-- list of contacts -->
           <div id="chats-list">
-            <div class="chat-preview d-flex" :class="{'active' : activeID === contact.id}" v-for="(contact, index) in contacts" :key="contact.id"
+            <div v-if="filterContacts.length < 1">Nessun risultato trovato</div>
+            <div class="chat-preview d-flex" :class="{'active' : activeID === contact.id}" v-for="(contact, index) in filterContacts" :key="contact.id"
             @click="changeContact(contact.id)">              
                 <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" :alt="`Immagine di ${contact.name}`">
                 <div class="d-flex flex-column">
