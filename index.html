@@ -36,156 +36,168 @@
     <title>Boolzapp</title>
   </head>
   <body>
-    <div id="app">
-      <main class="container d-flex">
+    <div id="app" >
+      <div class="h-100 w-100 " :class="{'no-splash-page' : !splashPage}">
+        <!-- splash page -->
+        <div id="splash-page" class="flex-column justify-content-center align-items-center " :class="{'d-none' : !splashPage, 'd-flex' : splashPage}">
+          <div class="logo">
+            <img class="img-fluid" src="img/splash_page.webp" alt="Logo">
+          </div>
+          <button
+          @click="enterMain">Accedi</button>
+        </div>
 
-        <!-- all left -->
-        <div class="left">
+        <!-- real page -->
+        <main class="container" :class="{'d-none' : splashPage, 'd-flex' : !splashPage}">
 
-          <!-- my section -->
-          <div class="header-me d-flex justify-content-between ">
-            <div class="me d-flex align-items-center ">
-              <img class="rounded-circle me-2" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f55211c7-40a6-4534-8ab2-a6a55256621d/dfzf1wn-13cfa100-47eb-420b-91f9-603b40e61138.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y1NTIxMWM3LTQwYTYtNDUzNC04YWIyLWE2YTU1MjU2NjIxZFwvZGZ6ZjF3bi0xM2NmYTEwMC00N2ViLTQyMGItOTFmOS02MDNiNDBlNjExMzgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.i7FdnaQn1q2hSxhSxD8uBafG8QxeD78z9aB3dTZ9W_c" alt="my avatar">
-              <span>Sasha</span>
+          <!-- all left -->
+          <div class="left">
+
+            <!-- my section -->
+            <div class="header-me d-flex justify-content-between ">
+              <div class="me d-flex align-items-center ">
+                <img class="rounded-circle me-2" src="img/mine_avatar.png" alt="my avatar">
+                <span>Sasha</span>
+              </div>
+              <div class="me-icons d-flex align-items-center ">
+                <div class="me-icon d-flex justify-content-center align-items-center mx-1">
+                  <i class="fa-solid fa-circle-notch"></i>
+                </div>
+                <div class="me-icon d-flex justify-content-center align-items-center mx-1">
+                  <i class="fa-solid fa-message"></i>
+                </div>
+                <div class="me-icon d-flex justify-content-center align-items-center">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+              </div>
             </div>
-            <div class="me-icons d-flex align-items-center ">
-              <div class="me-icon d-flex justify-content-center align-items-center mx-1">
-                <i class="fa-solid fa-circle-notch"></i>
+
+            <!-- notifications -->
+            <div class="noti d-flex ">
+              <div class="rounded-circle d-flex justify-content-center align-items-center me-2 ">
+                <i class="fa-solid fa-bell-slash"></i>
               </div>
-              <div class="me-icon d-flex justify-content-center align-items-center mx-1">
-                <i class="fa-solid fa-message"></i>
+              <div class="d-flex flex-column justify-content-center ">
+                <span>Ricevi notifiche di nuovi messaggi</span>
+                <a href="#">Attiva notifiche desktop</a>
               </div>
-              <div class="me-icon d-flex justify-content-center align-items-center">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+
+            <!-- search bar -->
+            <div class="search-bar d-flex ">
+              <div class="input-group">
+                <span class="input-group-text d-flex justify-content-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                v-model="filterText">
+              </div>
+            </div>
+
+            <!-- list of contacts -->
+            <div id="chats-list">
+              <div class="chats-list-empty" v-if="filterContacts.length < 1">Nessuna conversazione presente</div>
+              <div class="chat-preview d-flex" :class="{'active' : activeID === contact.id}" v-for="(contact, index) in filterContacts" :key="contact.id"
+              @click="changeContact(contact.id)">              
+                  <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" :alt="`Immagine di ${contact.name}`">
+                  <div class="d-flex flex-column">
+                    <span class="name">{{contact.name}}</span>
+                    <span class="last-message" v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length - 1].message}}</span>
+                  </div>
+                  <span class="last-message-date ms-auto" v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length - 1].date}}</span>
               </div>
             </div>
           </div>
 
-          <!-- notifications -->
-          <div class="noti d-flex ">
-            <div class="rounded-circle d-flex justify-content-center align-items-center me-2 ">
-              <i class="fa-solid fa-bell-slash"></i>
-            </div>
-            <div class="d-flex flex-column justify-content-center ">
-              <span>Ricevi notifiche di nuovi messaggi</span>
-              <a href="#">Attiva notifiche desktop</a>
-            </div>
-          </div>
+          <!-- all right -->
+          <div class="right">
 
-          <!-- search bar -->
-          <div class="search-bar d-flex ">
-            <div class="input-group">
-              <span class="input-group-text d-flex justify-content-center">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </span>
-              <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-              v-model="filterText">
-            </div>
-          </div>
-
-          <!-- list of contacts -->
-          <div id="chats-list">
-            <div class="chats-list-empty" v-if="filterContacts.length < 1">Nessuna conversazione presente</div>
-            <div class="chat-preview d-flex" :class="{'active' : activeID === contact.id}" v-for="(contact, index) in filterContacts" :key="contact.id"
-            @click="changeContact(contact.id)">              
-                <img class="rounded-circle w-auto mx-3 " :src="`img/${contact.avatar}`" :alt="`Immagine di ${contact.name}`">
+            <!-- header right side -->
+            <div class="header d-flex justify-content-between" v-if="activeContact">
+              <div class="d-flex align-items-center ">
+                <img class="w-auto rounded-circle me-3" :src="activeContact ? `img/${activeContact.avatar}` : ''" alt="my avatar">
                 <div class="d-flex flex-column">
-                  <span class="name">{{contact.name}}</span>
-                  <span class="last-message" v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length - 1].message}}</span>
-                </div>
-                <span class="last-message-date ms-auto" v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length - 1].date}}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- all right -->
-        <div class="right">
-
-          <!-- header right side -->
-          <div class="header d-flex justify-content-between" v-if="activeContact">
-            <div class="d-flex align-items-center ">
-              <img class="w-auto rounded-circle me-3" :src="activeContact ? `img/${activeContact.avatar}` : ''" alt="my avatar">
-              <div class="d-flex flex-column">
-                <span class="name" v-if="activeContact">{{ activeContact ? activeContact.name : '' }}</span>
-                <div class="last-message" v-if="activeContact.messages.length > 0">
-                  <span v-if="activeContact && contactStatus === 'offline'">ultimo accesso oggi alle {{activeContact.messages[activeContact.messages.length - 1].date}}</span>
-                  <span v-if="activeContact && contactStatus === 'writing'">sta scrivendo...</span>
-                  <span v-if="activeContact && contactStatus === 'online'">online</span>
+                  <span class="name" v-if="activeContact">{{ activeContact ? activeContact.name : '' }}</span>
+                  <div class="last-message" v-if="activeContact.messages.length > 0">
+                    <span v-if="activeContact && contactStatus === 'offline'">ultimo accesso oggi alle {{activeContact.messages[activeContact.messages.length - 1].date}}</span>
+                    <span v-if="activeContact && contactStatus === 'writing'">sta scrivendo...</span>
+                    <span v-if="activeContact && contactStatus === 'online'">online</span>
+                  </div>
                 </div>
               </div>
+              <div class="icons d-flex align-items-center ">
+                <div class="icon d-flex justify-content-center align-items-center mx-1">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="icon d-flex justify-content-center align-items-center mx-1">
+                  <i class="fa-solid fa-paperclip"></i>
+                </div>
+                <div class="icon d-flex justify-content-center align-items-center">
+                  <span class="delete-message-icon dropdown">
+                    <i class="fa-solid fa-ellipsis-vertical"
+                    :class="{'active' : deleteAllDropdown}"
+                    @click="showDeleteAllDropdown"></i>
+                    <ul class="dropdown-menu" :class="{'show' : deleteAllDropdown}">
+                      <li><a class="dropdown-item" href="#"
+                        @click.prevent="deleteAllMessage">Elimina messaggi</a></li>
+                      <li><a class="dropdown-item" href="#"
+                        @click.prevent="deleteChat">Elimina chat</a></li>
+                    </ul>
+                  </span>
+                </div>
+              </div>
             </div>
-            <div class="icons d-flex align-items-center ">
-              <div class="icon d-flex justify-content-center align-items-center mx-1">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <div class="icon d-flex justify-content-center align-items-center mx-1">
-                <i class="fa-solid fa-paperclip"></i>
-              </div>
-              <div class="icon d-flex justify-content-center align-items-center">
-                <span class="delete-message-icon dropdown">
-                  <i class="fa-solid fa-ellipsis-vertical"
-                  :class="{'active' : deleteAllDropdown}"
-                  @click="showDeleteAllDropdown"></i>
-                  <ul class="dropdown-menu" :class="{'show' : deleteAllDropdown}">
-                    <li><a class="dropdown-item" href="#"
-                      @click.prevent="deleteAllMessage">Elimina messaggi</a></li>
-                    <li><a class="dropdown-item" href="#"
-                      @click.prevent="deleteChat">Elimina chat</a></li>
-                  </ul>
-                </span>
-              </div>
-            </div>
-          </div>
 
-          <!-- all the chat space -->
-          <div id="chat" v-if="activeContact">
-            <div v-if="activeContact.messages.length > 0">
-              <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages">
-                <span class="delete-message-icon dropdown">
-                  <i class="fa-solid"
-                  :class="{'active fa-angle-up' : message.showDropdown, 'fa-angle-down' : !message.showDropdown}"
-                  @click="showDeleteDropdown(index)"></i>
-                  <ul class="dropdown-menu " :class="{'show' : message.showDropdown}">
-                    <li><a class="dropdown-item" href="#">Info messaggio</a></li>
-                    <li><a class="dropdown-item" href="#"
-                      @click.prevent="deleteMessage(index)">Elimina messaggio</a></li>
-                  </ul>
-                </span>
-                <span class="message">{{message.message}}</span>
-                <span class="date ms-auto ">{{message.date}}</span>
+            <!-- all the chat space -->
+            <div id="chat" v-if="activeContact">
+              <div v-if="activeContact.messages.length > 0">
+                <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages">
+                  <span class="delete-message-icon dropdown">
+                    <i class="fa-solid"
+                    :class="{'active fa-angle-up' : message.showDropdown, 'fa-angle-down' : !message.showDropdown}"
+                    @click="showDeleteDropdown(index)"></i>
+                    <ul class="dropdown-menu " :class="{'show' : message.showDropdown}">
+                      <li><a class="dropdown-item" href="#">Info messaggio</a></li>
+                      <li><a class="dropdown-item" href="#"
+                        @click.prevent="deleteMessage(index)">Elimina messaggio</a></li>
+                    </ul>
+                  </span>
+                  <span class="message">{{message.message}}</span>
+                  <span class="date ms-auto ">{{message.date}}</span>
+                </div>
+              </div>
+              <div class="chat-empty d-flex justify-content-center pt-3" v-else>
+                <span>La conversazione non inizia da sola! Scrivi un messaggio a {{activeContact.name}} per dare il via alla chat.</span>
               </div>
             </div>
-            <div class="chat-empty d-flex justify-content-center pt-3" v-else>
-              <span>La conversazione non inizia da sola! Scrivi un messaggio a {{activeContact.name}} per dare il via alla chat.</span>
+            <div id="welcome" class="d-flex flex-column align-items-center  justify-content-center " v-else>
+              <img class="img-fluid w-75" src="img/welcome_logo.png" alt="Immagine di benvenuto">
+              <p class="text-center ">
+                <span class="d-block mb-4">&#128640; Benvenuto su WhatsApp! &#128640</span>
+                <span class="d-block my-4">Inizia a connetterti con i tuoi cari e amici oggi stesso! &#128107;&#128108;&#128109;</span>
+                <span class="d-block my-4">&#128241; Apri le chat presenti per riallacciare i rapporti o aggiungi nuovi contatti per espandere la tua rete sociale. &#127760;</span>
+                <span class="d-block mt-4">&#128172; Non perdere tempo, tocca l'icona qui sotto per avviare una nuova conversazione e condividere momenti speciali con le persone che ami! &#128150;</span>
+              </p>
             </div>
-          </div>
-          <div id="welcome" class="d-flex flex-column align-items-center  justify-content-center " v-else>
-            <img class="img-fluid w-75" src="https://mysunbank.com.au/wp-content/uploads/2020/02/LetsChat-Logo.png" alt="Immagine di benvenuto">
-            <p class="text-center ">
-              <span class="d-block mb-4">&#128640; Benvenuto su WhatsApp! &#128640</span>
-              <span class="d-block my-4">Inizia a connetterti con i tuoi cari e amici oggi stesso! &#128107;&#128108;&#128109;</span>
-              <span class="d-block my-4">&#128241; Apri le chat presenti per riallacciare i rapporti o aggiungi nuovi contatti per espandere la tua rete sociale. &#127760;</span>
-              <span class="d-block mt-4">&#128172; Non perdere tempo, tocca l'icona qui sotto per avviare una nuova conversazione e condividere momenti speciali con le persone che ami! &#128150;</span>
-            </p>
-          </div>
 
-          <!-- chat input bar -->
-          <div class="chat-input-bar d-flex " v-if="activeContact">
-            <div class="d-flex justify-content-center align-items-center">
-              <i class="fa-regular fa-face-smile"></i>
-            </div>
-            <input type="text" class="form-control" id="input-text-message" placeholder="Scrivi un messaggio"
-            v-model="newMessage"
-            @keyup.enter="addMessage"
-            @focus="sendButton"
-            @blur="sendButton">
-            <div class="d-flex justify-content-center align-items-center">
-              <i class="fa-solid fa-microphone" v-if="!focusInputChat && newMessage === ''"></i>
-              <i class="fa-solid fa-paper-plane" @mousedown="addMessage" v-if="focusInputChat || newMessage !== ''"></i>
+            <!-- chat input bar -->
+            <div class="chat-input-bar d-flex " v-if="activeContact">
+              <div class="d-flex justify-content-center align-items-center">
+                <i class="fa-regular fa-face-smile"></i>
+              </div>
+              <input type="text" class="form-control" id="input-text-message" placeholder="Scrivi un messaggio"
+              v-model="newMessage"
+              @keyup.enter="addMessage"
+              @focus="sendButton"
+              @blur="sendButton">
+              <div class="d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-microphone" v-if="!focusInputChat && newMessage === ''"></i>
+                <i class="fa-solid fa-paper-plane" @mousedown="addMessage" v-if="focusInputChat || newMessage !== ''"></i>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   </body>
 </html>

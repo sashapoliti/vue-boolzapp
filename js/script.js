@@ -8,6 +8,7 @@ createApp({
   data() {
     return {
       contacts,
+      splashPage : true,
       activeID: '',
       newMessage: "",
       filterText: "",
@@ -17,6 +18,9 @@ createApp({
     };
   },
   methods: {
+    enterMain() {
+      this.splashPage = !this.splashPage;
+    },
     changeContact(id) {
       this.activeID = id;
     },
