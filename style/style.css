@@ -142,6 +142,9 @@ main .right #chat .box .delete-message-icon {
   right: 7px;
   cursor: pointer;
 }
+main .right #chat .box .delete-message-icon i.active {
+  color: #0000005d;
+}
 main .right #chat .box:hover .delete-message-icon {
   color: #0000005d;
   transition-duration: 0.3s;
