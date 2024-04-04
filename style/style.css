@@ -45,6 +45,9 @@ main .left {
   width: 35%;
   border-right: 1px solid #d1d1d1;
 }
+main .left .header-me .me img {
+  width: 50px;
+}
 main .left .noti {
   height: 80px;
   padding: 15px 20px;
@@ -83,7 +86,7 @@ main .left .search-bar span.input-group-text {
 }
 main .left #chats-list {
   height: calc(100% - 70px - 80px - 50px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 main .left #chats-list .chat-preview {
   height: 80px;
@@ -128,7 +131,7 @@ main .right #chat {
   height: calc(100% - 70px * 2);
   padding: 0 50px;
   background-image: url("../img/mine.jpg");
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 main .right #chat .box {
   width: 350px;
