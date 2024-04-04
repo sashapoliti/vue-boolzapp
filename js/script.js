@@ -44,6 +44,9 @@ createApp({
         this.activeContact.messages.forEach((message) => message.showDropdown = false); //reset for close every other dropdown in the chat
         this.activeContact.messages[index].showDropdown = true;
       }
+    },
+    deleteMessage(index) {
+      this.activeContact.messages.splice(index, 1); /* splice the message with index */
     }
   },
   computed: {
