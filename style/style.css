@@ -143,11 +143,18 @@ main .right #chat .box .delete-message-icon {
   cursor: pointer;
 }
 main .right #chat .box .delete-message-icon i.active {
-  color: #0000005d;
+  color: #00000041;
 }
 main .right #chat .box:hover .delete-message-icon {
-  color: #0000005d;
+  color: #00000041;
   transition-duration: 0.3s;
+}
+main .right #chat .box .delete-message-icon ul.dropdown-menu {
+  font-size: 0.8rem;
+  border: 0;
+  border-radius: 3px;
+  left: -142px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 main .right #chat .box .message {
   padding: 10px 23px 0 15px;

@@ -127,10 +127,9 @@
                 <i class="fa-solid"
                 :class="{'active fa-angle-up' : message.showDropdown === true, 'fa-angle-down' : message.showDropdown === false}"
                 @click="showDeleteDropdown(index)"></i>
-                <ul class="dropdown-menu" :class="{'show' : message.showDropdown === true}">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <ul class="dropdown-menu " :class="{'show' : message.showDropdown === true}">
+                  <li><a class="dropdown-item" href="#">Info Messaggio</a></li>
+                  <li><a class="dropdown-item" href="#">Elimina Messaggio</a></li>
                 </ul>
               </span>
               <span class="message">{{message.message}}</span>
