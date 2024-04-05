@@ -1,4 +1,6 @@
 import { contacts } from "./data.js";
+import { responses } from "./data.js";
+import { getRndInteger } from "./utility.js";
 import Picker from './emoji-picker.js';
 
 const dateTime = luxon.DateTime;
@@ -48,9 +50,10 @@ createApp({
           this.$refs.msgs[this.$refs.msgs.length - 1].scrollIntoView({behavior: "smooth"})
         });
       
+        const respons = responses[getRndInteger(0, 49)];
         setTimeout(() => {
           this.activeContact.messages.push(
-            this.createMessage("ok", "received")
+            this.createMessage(respons, "received")
           );
 
           this.$nextTick(() => {
