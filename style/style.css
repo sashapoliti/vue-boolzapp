@@ -41,6 +41,20 @@ img {
   transition-duration: 0.3s;
 }
 
+/* address book */
+#address-book {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+}
+#address-book .container {
+  max-width: 400px;
+}
+
 /* main */
 main.container {
   height: 100%;
