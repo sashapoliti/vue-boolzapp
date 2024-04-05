@@ -251,3 +251,8 @@ main .right #welcome {
   border: 10px solid #FFFFFF;
   border-left: 0;
 }
+main .right .emoji {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}

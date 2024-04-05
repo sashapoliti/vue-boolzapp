@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="style/style.css" />
     <!-- Luxon -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <!-- Emoji -->
+    <script src="./js/emoji-picker.js" type="module"></script>
+    <link rel="stylesheet" href="./js/style.css">
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JS -->
@@ -149,9 +152,9 @@
             </div>
 
             <!-- all the chat space -->
-            <div id="chat" v-if="activeContact">
+            <div class="position-relative " id="chat" v-if="activeContact">
               <div v-if="activeContact.messages.length > 0">
-                <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages">
+                <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages" ref="msgs">
                   <span class="delete-message-icon dropdown">
                     <i class="fa-solid"
                     :class="{'active fa-angle-up' : message.showDropdown, 'fa-angle-down' : !message.showDropdown}"
@@ -169,6 +172,7 @@
               <div class="chat-empty d-flex justify-content-center pt-3" v-else>
                 <span>La conversazione non inizia da sola! Scrivi un messaggio a {{activeContact.name}} per dare il via alla chat.</span>
               </div>
+              <Picker @select="onSelectEmoji" class="emoji" :class="{'d-none': !showEmoji}" />
             </div>
             <div id="welcome" class="d-flex flex-column align-items-center  justify-content-center " v-else>
               <img class="img-fluid w-75" src="img/welcome_logo.png" alt="Immagine di benvenuto">
@@ -181,9 +185,9 @@
             </div>
 
             <!-- chat input bar -->
-            <div class="chat-input-bar d-flex " v-if="activeContact">
+            <div class="chat-input-bar d-flex" v-if="activeContact">              
               <div class="d-flex justify-content-center align-items-center">
-                <i class="fa-regular fa-face-smile"></i>
+                <i class="fa-regular fa-face-smile" @click="showEmoji = !showEmoji"></i>
               </div>
               <input type="text" class="form-control" id="input-text-message" placeholder="Scrivi un messaggio"
               v-model="newMessage"
@@ -195,6 +199,7 @@
                 <i class="fa-solid fa-paper-plane" @mousedown="addMessage" v-if="focusInputChat || newMessage !== ''"></i>
               </div>
             </div>
+            
           </div>
         </main>
       </div>

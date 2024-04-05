@@ -1,4 +1,5 @@
 import { contacts } from "./data.js";
+import Picker from './emoji-picker.js';
 
 const dateTime = luxon.DateTime;
 
@@ -12,9 +13,10 @@ createApp({
       activeID: '',
       newMessage: "",
       filterText: "",
-      focusInputChat: false,
-      contactStatus: "offline",
-      deleteAllDropdown: false,
+      focusInputChat : false,
+      contactStatus : "offline",
+      deleteAllDropdown : false,
+      showEmoji : false
     };
   },
   methods: {
@@ -22,6 +24,7 @@ createApp({
       this.splashPage = !this.splashPage;
     },
     changeContact(id) {
+      this.deleteAllDropdown = false; //reset header dropdown
       this.activeID = id;
     },
     createMessage(message, status) {
@@ -41,10 +44,19 @@ createApp({
         );
         this.contactStatus = "writing";
 
+        this.$nextTick(() => {
+          this.$refs.msgs[this.$refs.msgs.length - 1].scrollIntoView({behavior: "smooth"})
+        });
+      
         setTimeout(() => {
           this.activeContact.messages.push(
             this.createMessage("ok", "received")
           );
+
+          this.$nextTick(() => {
+            this.$refs.msgs[this.$refs.msgs.length - 1].scrollIntoView({behavior: "smooth"})
+          });    
+
           this.contactStatus = "online";
         }, 2000); /* timeout for a reply after 1 second */
 
@@ -98,6 +110,20 @@ createApp({
         this.deleteAllDropdown = false; //reset header dropdown
       }
     },
+    onSelectEmoji(emoji) {
+      console.log(emoji)
+      this.newMessage += emoji.i;
+      /*
+        // result
+        { 
+            i: "😚", 
+            n: ["kissing face"], 
+            r: "1f61a", // with skin tone
+            t: "neutral", // skin tone
+            u: "1f61a" // without tone
+        }
+        */
+    }
   },
   computed: {
     activeContact() {
@@ -109,6 +135,5 @@ createApp({
       );
     },
   },
-  mounted() {
-  },
-}).mount("#app");
+  mounted() {},
+}).component('Picker', Picker).mount("#app");
