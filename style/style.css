@@ -254,5 +254,5 @@ main .right #welcome {
 main .right .emoji {
   position: absolute;
   left: 10px;
-  bottom: 10px;
+  bottom: 80px
 }

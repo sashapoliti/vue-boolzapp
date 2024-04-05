@@ -113,7 +113,7 @@
           </div>
 
           <!-- all right -->
-          <div class="right">
+          <div class="right position-relative ">
 
             <!-- header right side -->
             <div class="header d-flex justify-content-between" v-if="activeContact">
@@ -152,7 +152,7 @@
             </div>
 
             <!-- all the chat space -->
-            <div class="position-relative " id="chat" v-if="activeContact">
+            <div id="chat" v-if="activeContact">
               <div v-if="activeContact.messages.length > 0">
                 <div class="box d-flex flex-column" :class="message.status" v-for="(message, index) in activeContact.messages" ref="msgs">
                   <span class="delete-message-icon dropdown">
@@ -172,8 +172,9 @@
               <div class="chat-empty d-flex justify-content-center pt-3" v-else>
                 <span>La conversazione non inizia da sola! Scrivi un messaggio a {{activeContact.name}} per dare il via alla chat.</span>
               </div>
-              <Picker @select="onSelectEmoji" class="emoji" :class="{'d-none': !showEmoji}" />
             </div>
+
+            <!-- welcome -->
             <div id="welcome" class="d-flex flex-column align-items-center  justify-content-center " v-else>
               <img class="img-fluid w-75" src="img/welcome_logo.png" alt="Immagine di benvenuto">
               <p class="text-center ">
@@ -186,7 +187,7 @@
 
             <!-- chat input bar -->
             <div class="chat-input-bar d-flex" v-if="activeContact">              
-              <div class="d-flex justify-content-center align-items-center">
+              <div class="d-flex justify-content-center align-items-center ">
                 <i class="fa-regular fa-face-smile" @click="showEmoji = !showEmoji"></i>
               </div>
               <input type="text" class="form-control" id="input-text-message" placeholder="Scrivi un messaggio"
@@ -198,6 +199,11 @@
                 <i class="fa-solid fa-microphone" v-if="!focusInputChat && newMessage === ''"></i>
                 <i class="fa-solid fa-paper-plane" @mousedown="addMessage" v-if="focusInputChat || newMessage !== ''"></i>
               </div>
+            </div>
+
+            <!-- emoji -->
+            <div class="emoji">
+              <Picker @select="onSelectEmoji" :class="{'d-none': !showEmoji}" />
             </div>
             
           </div>
