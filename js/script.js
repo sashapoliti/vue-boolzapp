@@ -12,13 +12,20 @@ createApp({
     return {
       contacts,
       splashPage : true,
-      activeID: '',
-      newMessage: "",
-      filterText: "",
+      activeID : '',
+      newMessage : "",
+      filterText : "",
       focusInputChat : false,
       contactStatus : "offline",
       deleteAllDropdown : false,
-      showEmoji : false
+      showEmoji : false,
+      newContactScreen : false,
+      newContact : {
+        id: 8,
+        name: '',
+        avatar: 'avatar_8.jpg',
+        messages: []
+      }
     };
   },
   methods: {

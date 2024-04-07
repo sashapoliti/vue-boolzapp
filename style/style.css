@@ -53,6 +53,38 @@ img {
 }
 #address-book .container {
   max-width: 400px;
+  padding: 0;
+  background-color: #f3eeea;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#address-book .header {
+  background-color: #128C7E;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+#address-book .content {
+  padding: 20px;
+}
+#address-book input {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+#address-book button {
+  width: 100%;
+  padding: 10px;
+  background-color: #128C7E;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#address-book button:hover {
+  background-color: #0D6E5A;
 }
 
 /* main */

@@ -50,8 +50,14 @@
           @click="enterMain">Accedi</button>
         </div>
 
-        <div id="address-book" class="d-none d-flex align-items-center ">
-          <div class="container">1</div>
+        <div id="address-book" class="d-flex align-items-center" :class="{'d-none' : !newContactScreen}">
+          <div class="container">
+            <div class="header">Aggiungi contatto</div>
+            <div class="content">
+              <input type="text" placeholder="Nome" v-model="newContact.name">
+              <button>Aggiungi</button>
+            </div>
+          </div>
         </div>
 
         <!-- real page -->

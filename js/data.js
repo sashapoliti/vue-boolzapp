@@ -153,7 +153,7 @@ export const contacts = [
     },
     {
         id: 8,
-        name: 'Davide',
+        name: 'Ivan',
         avatar: 'avatar_8.jpg',
         messages: [
             {
